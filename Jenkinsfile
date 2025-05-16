@@ -2,6 +2,15 @@ pipeline {
     agent any
 
     stages {
+        stage('Git Checkout') {
+            steps {
+                script {
+                    // Perform a clean checkout of the repository
+                    checkout scm
+                    echo 'Repository has been checked out.'
+                }
+            }
+        }
         stage('Hello') {
             steps {
                 echo 'Hello, World!'
